@@ -9,7 +9,8 @@ i18n.use(initReactI18next).init({
         login: "Login",
         username:"Usenname",
         password:"Password",
-        search:"Search by title, category or status..."
+        search:"Search by title, category or status...",
+        addNewTicket:"Add New Ticket"
       },
     },
     tr: {
@@ -18,7 +19,8 @@ i18n.use(initReactI18next).init({
         login: "Giriş Yap",
         username:"Kullanıcı Adı",
         password:"Şifre",
-        search:"Başlık, kategori veya statuse göre ara"
+        search:"Başlık, kategori veya statuse göre ara",
+        addNewTicket:"Yeni Talep Ekle"
       },
     }
   },

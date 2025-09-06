@@ -24,4 +24,4 @@ export const ticketApi = createApi({
 })
 
 
-export const { useGetAllTicketsQuery } = ticketApi
+export const { useGetAllTicketsQuery, useCreateTicketMutation } = ticketApi

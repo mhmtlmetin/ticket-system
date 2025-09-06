@@ -1,56 +1,92 @@
 {
-"users": [
-{ "id": 1, "username": "admin", "password": "admin123", "name": "Admin", "role": "admin" },
-{ "id": 2, "username": "user", "password": "user123", "name": "Mehmet Ali", "role": "user" }
-],
-"requests": [
-{
-"id": 1,
-"title": "Erişim problemi",
-"description": "VPN ile bağlanamıyorum.",
-"category": "Network",
-"status": "open",
-"createdBy": 2,
-"createdAt": "2025-09-01T08:00:00.000Z"
-},
-{
-"id": 2,
-"title": "Uygulamaya  login olamıyorum",
-"description": "Kullanıcı Adı ve şifremi doğru yazmama rağmen login olamıyorum.",
-"category": "Application",
-"status": "closed",
-"createdBy": 2,
-"createdAt": "2025-09-01T08:00:00.000Z"
-},
-{
-"id": 3,
-"title": "Profil Bilgilerime erişemiyorum",
-"description": "Login olduktan sonra profil bilgilerim boş geliyor.",
-"category": "Application",
-"status": "in-progress",
-"createdBy": 2,
-"createdAt": "2025-09-01T08:00:00.000Z"
-},
-{
-"id": 4,
-"title": "Erişim problemi",
-"description": "VPN çok yavaş çalışıyor. bu konu hakkında yardımcı olabilir misiniz?",
-"category": "Network",
-"status": "open",
-"createdBy": 2,
-"createdAt": "2025-09-01T08:00:00.000Z"
-},
-{
-"id": 5,
-"title": "Erişim problemi",
-"description": "VPN ile bağlanamıyorum.",
-"category": "Network",
-"status": "open",
-"createdBy": 2,
-"createdAt": "2025-09-01T08:00:00.000Z"
-}
-],
-"comments": [
-{ "id": 1, "requestId": 1, "authorId": 2, "text": "Sorun devam ediyor.", "createdAt": "2025-09-01T09:00:00.000Z" }
-]
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin123",
+      "name": "Admin",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "username": "user",
+      "password": "user123",
+      "name": "Mehmet Ali",
+      "role": "user"
+    }
+  ],
+  "requests": [
+    {
+      "id": 1,
+      "title": "Erişim problemi",
+      "description": "VPN ile bağlanamıyorum.",
+      "category": "Network",
+      "status": "open",
+      "createdBy": 2,
+      "createdAt": "2025-09-01T08:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "title": "Uygulamaya  login olamıyorum",
+      "description": "Kullanıcı Adı ve şifremi doğru yazmama rağmen login olamıyorum.",
+      "category": "Application",
+      "status": "closed",
+      "createdBy": 2,
+      "createdAt": "2025-09-01T08:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "title": "Profil Bilgilerime erişemiyorum",
+      "description": "Login olduktan sonra profil bilgilerim boş geliyor.",
+      "category": "Application",
+      "status": "in-progress",
+      "createdBy": 2,
+      "createdAt": "2025-09-01T08:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "title": "Erişim problemi",
+      "description": "VPN çok yavaş çalışıyor. bu konu hakkında yardımcı olabilir misiniz?",
+      "category": "Network",
+      "status": "open",
+      "createdBy": 2,
+      "createdAt": "2025-09-01T08:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "title": "Erişim problemi",
+      "description": "VPN ile bağlanamıyorum.",
+      "category": "Network",
+      "status": "open",
+      "createdBy": 2,
+      "createdAt": "2025-09-01T08:00:00.000Z"
+    },
+    {
+      "id": "b35f",
+      "title": "DENEME",
+      "description": "bu bir deneme işlemi",
+      "category": "Network",
+      "status": "in-progress",
+      "createdBy": 1,
+      "createdAt": "2025-09-06T19:11:25.723Z"
+    },
+    {
+      "id": "c0d1",
+      "title": "deneme2",
+      "description": "deneme2 ",
+      "category": "Software",
+      "status": "open",
+      "createdBy": 1,
+      "createdAt": "2025-09-06T19:27:11.425Z"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "requestId": 1,
+      "authorId": 2,
+      "text": "Sorun devam ediyor.",
+      "createdAt": "2025-09-01T09:00:00.000Z"
+    }
+  ]
 }
