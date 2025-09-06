@@ -3,13 +3,16 @@ import { useLazyLoginQuery } from "../services/auth.service";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setCredentials, setError } from "../redux/auth/authSlice";
-import "../styles/login.scss"
+import { useTranslation } from "react-i18next";
+import "../styles/login.scss";
+
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [triggerLogin, { isLoading }] = useLazyLoginQuery();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,15 +37,12 @@ export default function Login() {
 
   return (
     <div className="login-container">
-      <form
-        onSubmit={handleSubmit}
-        className="login-box"
-      >
-        <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+      <form onSubmit={handleSubmit} className="login-box">
+        <h2 className="text-2xl font-bold mb-6 text-center">{t("login")}</h2>
 
         <input
           type="text"
-          placeholder="Username"
+          placeholder={t("username")}
           className="w-full mb-4 p-2 border rounded"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
@@ -50,7 +50,7 @@ export default function Login() {
 
         <input
           type="password"
-          placeholder="Password"
+          placeholder={t("password")}
           className="w-full mb-4 p-2 border rounded"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -61,7 +61,8 @@ export default function Login() {
           className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
           disabled={isLoading}
         >
-          {isLoading ? "Loading..." : "Login"}
+         {isLoading ? t("loading") : t("login")}
+
         </button>
       </form>
     </div>
