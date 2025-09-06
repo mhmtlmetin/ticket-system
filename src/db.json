@@ -12,6 +12,42 @@
 "status": "open",
 "createdBy": 2,
 "createdAt": "2025-09-01T08:00:00.000Z"
+},
+{
+"id": 2,
+"title": "Uygulamaya  login olamıyorum",
+"description": "Kullanıcı Adı ve şifremi doğru yazmama rağmen login olamıyorum.",
+"category": "Application",
+"status": "closed",
+"createdBy": 2,
+"createdAt": "2025-09-01T08:00:00.000Z"
+},
+{
+"id": 3,
+"title": "Profil Bilgilerime erişemiyorum",
+"description": "Login olduktan sonra profil bilgilerim boş geliyor.",
+"category": "Application",
+"status": "in-progress",
+"createdBy": 2,
+"createdAt": "2025-09-01T08:00:00.000Z"
+},
+{
+"id": 4,
+"title": "Erişim problemi",
+"description": "VPN çok yavaş çalışıyor. bu konu hakkında yardımcı olabilir misiniz?",
+"category": "Network",
+"status": "open",
+"createdBy": 2,
+"createdAt": "2025-09-01T08:00:00.000Z"
+},
+{
+"id": 5,
+"title": "Erişim problemi",
+"description": "VPN ile bağlanamıyorum.",
+"category": "Network",
+"status": "open",
+"createdBy": 2,
+"createdAt": "2025-09-01T08:00:00.000Z"
 }
 ],
 "comments": [
