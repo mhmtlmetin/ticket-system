@@ -1,19 +1,18 @@
-import { useState } from "react";
-import Login from "./pages/login";
-import { useGetAllTicketsQuery } from "./services/tickets.service.js";
+import React from "react";
+import { Router, Route, Routes} from "react-router-dom";
 
+import Login from "./pages/login";
+import AdminDashboard from "./pages/adminDashboard";
+import UserDashboard from "./pages/userDashboard";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(null);
-  const {data, error, isLoding}= useGetAllTicketsQuery();
-  console.log(data)
-  if (!currentUser) {
-    return <Login onLogin={setCurrentUser} />;
-  };
-
-
-
-  return null;
+  return (
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
+        <Route path="/user-dashboard" element={<UserDashboard />} />
+      </Routes>
+  );
 }
 
 export default App;

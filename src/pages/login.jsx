@@ -1,33 +1,68 @@
 import { useState } from "react";
-
-export default function Login({ onLogin }) {
+import { useLazyLoginQuery } from "../services/auth.service";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { setCredentials, setError } from "../redux/auth/authSlice";
+import "../styles/login.scss"
+export default function Login() {
   const [username, setUsername] = useState("");
-  const [role, setRole] = useState("user");
+  const [password, setPassword] = useState("");
+  const [triggerLogin, { isLoading }] = useLazyLoginQuery();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // mock user bilgisi döndürüyoruz
-    onLogin({ username, role });
+    try {
+      const result = await triggerLogin({ username, password }).unwrap();
+      if (result.length > 0) {
+        const user = result[0];
+        dispatch(setCredentials(user));
+
+        if (user.role === "admin") {
+          navigate("/admin-dashboard");
+        } else {
+          navigate("/user-dashboard");
+        }
+      } else {
+        dispatch(setError("Invalid username or password"));
+      }
+    } catch (err) {
+      dispatch(setError("Login failed"));
+    }
   };
 
   return (
     <div className="login-container">
-      <h2>Ticket Sistemi - Giriş</h2>
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+        className="login-box"
+      >
+        <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+
         <input
           type="text"
-          placeholder="Kullanıcı adı"
+          placeholder="Username"
+          className="w-full mb-4 p-2 border rounded"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          required
         />
 
-        <select value={role} onChange={(e) => setRole(e.target.value)}>
-          <option value="user">User</option>
-          <option value="admin">Admin</option>
-        </select>
+        <input
+          type="password"
+          placeholder="Password"
+          className="w-full mb-4 p-2 border rounded"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
-        <button type="submit">Giriş Yap</button>
+        <button
+          type="submit"
+          className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
+          disabled={isLoading}
+        >
+          {isLoading ? "Loading..." : "Login"}
+        </button>
       </form>
     </div>
   );
