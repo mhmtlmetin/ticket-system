@@ -8,7 +8,8 @@ i18n.use(initReactI18next).init({
         welcome: "Welcome",
         login: "Login",
         username:"Usenname",
-        password:"Password"
+        password:"Password",
+        search:"Search by title, category or status..."
       },
     },
     tr: {
@@ -16,7 +17,8 @@ i18n.use(initReactI18next).init({
         welcome: "Hoşgeldiniz",
         login: "Giriş Yap",
         username:"Kullanıcı Adı",
-        password:"Şifre"
+        password:"Şifre",
+        search:"Başlık, kategori veya statuse göre ara"
       },
     }
   },

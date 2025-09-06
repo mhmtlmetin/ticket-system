@@ -1,0 +1,33 @@
+.smart-request-list {
+  padding: 30px;
+     width: 40vw;
+    margin-left: 15%;
+
+  input {
+    width: 100%;
+    height: 95x;
+    padding: 10px 14px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border 0.2s;
+
+    &:focus {
+      border-color: #1976d2;
+    }
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 15px;
+  }
+
+  .no-results {
+    color: #777;
+    font-style: italic;
+    margin-top: 20px;
+  }
+}
