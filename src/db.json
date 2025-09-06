@@ -1,0 +1,20 @@
+{
+"users": [
+{ "id": 1, "username": "admin", "password": "admin123", "name": "Admin", "role": "admin" },
+{ "id": 2, "username": "user", "password": "user123", "name": "Mehmet Ali", "role": "user" }
+],
+"requests": [
+{
+"id": 1,
+"title": "Erişim problemi",
+"description": "VPN ile bağlanamıyorum.",
+"category": "Network",
+"status": "open",
+"createdBy": 2,
+"createdAt": "2025-09-01T08:00:00.000Z"
+}
+],
+"comments": [
+{ "id": 1, "requestId": 1, "authorId": 2, "text": "Sorun devam ediyor.", "createdAt": "2025-09-01T09:00:00.000Z" }
+]
+}
