@@ -18,8 +18,12 @@ export default function Login() {
     e.preventDefault();
     try {
       const result = await triggerLogin({ username, password }).unwrap();
+      if (username.length == 0) {
+        return;
+      }
       if (result.length > 0) {
         const user = result[0];
+        localStorage.setItem("userName", user.id);
         dispatch(setCredentials(user));
 
         if (user.role === "admin") {
@@ -61,8 +65,7 @@ export default function Login() {
           className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
           disabled={isLoading}
         >
-         {isLoading ? t("loading") : t("login")}
-
+          {isLoading ? t("loading") : t("login")}
         </button>
       </form>
     </div>

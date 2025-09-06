@@ -10,6 +10,9 @@ export const ticketApi = createApi({
     getAllTickets: builder.query({
       query: () => 'requests',
     }),
+    getTicket: builder.query({
+      query: (id) => `requests/${id}`,
+    }),
 
     createTicket: builder.mutation({
       query: (newTicket)=> ({
@@ -24,4 +27,4 @@ export const ticketApi = createApi({
 })
 
 
-export const { useGetAllTicketsQuery, useCreateTicketMutation } = ticketApi
+export const { useGetAllTicketsQuery, useGetTicketQuery, useCreateTicketMutation } = ticketApi

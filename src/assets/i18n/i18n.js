@@ -10,7 +10,8 @@ i18n.use(initReactI18next).init({
         username:"Usenname",
         password:"Password",
         search:"Search by title, category or status...",
-        addNewTicket:"Add New Ticket"
+        addNewTicket:"Add New Ticket",
+        detail:"Detail"
       },
     },
     tr: {
@@ -20,7 +21,8 @@ i18n.use(initReactI18next).init({
         username:"Kullanıcı Adı",
         password:"Şifre",
         search:"Başlık, kategori veya statuse göre ara",
-        addNewTicket:"Yeni Talep Ekle"
+        addNewTicket:"Yeni Talep Ekle",
+        detail:"Detay"
       },
     }
   },
