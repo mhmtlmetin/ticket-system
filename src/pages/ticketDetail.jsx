@@ -19,7 +19,10 @@ function TicketDetail() {
   const [addComment] = useAddCommentMutation();
   
   console.log(data, "data");
-  const getUserName = (id) => {};
+  const getUserName = (id) => {
+     const user = users?.find((u) => String(u.id) === String(id));
+    return user ? user.name : `User #${id}`;
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!text.trim()) return;
@@ -63,7 +66,7 @@ function TicketDetail() {
           {comments?.map((c) => (
             <li key={c.id}>
               <p>
-                <strong>{users['name']}:</strong> {c.text}
+                <strong>{getUserName(c.authorId)}:</strong> {c.text}
               </p>
               <small>{new Date(c.createdAt).toLocaleString()}</small>
             </li>

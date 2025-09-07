@@ -161,6 +161,20 @@
       "authorId": 1,
       "text": "şimdi tekrar deniyorum",
       "createdAt": "2025-09-07T10:58:05.692Z"
+    },
+    {
+      "id": "b9db",
+      "requestId": 2,
+      "authorId": 2,
+      "text": "merhaba",
+      "createdAt": "2025-09-07T11:22:04.680Z"
+    },
+    {
+      "id": "ee24",
+      "requestId": 2,
+      "authorId": 2,
+      "text": "tekrar denedim",
+      "createdAt": "2025-09-07T11:22:18.997Z"
     }
   ]
 }
