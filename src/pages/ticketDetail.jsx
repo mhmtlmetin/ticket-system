@@ -6,6 +6,7 @@ import {
   useGetCommentsByRequestIdQuery,
   useAddCommentMutation,
   useGetUserByAuthorIdQuery,
+  useUpdateTicketMutation 
 } from "../services/tickets.service";
 
 function TicketDetail() {
@@ -13,10 +14,12 @@ function TicketDetail() {
   const { id } = useParams();
   const [text, setText] = useState("");
   const { data: ticket, isLoading, error } = useGetTicketQuery(id);
+   const [newStatus, setNewStatus] = useState(ticket?.status || "");
   const { data: comments } = useGetCommentsByRequestIdQuery(id);
   const { data: users } = useGetUserByAuthorIdQuery(authorId);
   console.log(users, "username");
   const [addComment] = useAddCommentMutation();
+  const [updateTicket] = useUpdateTicketMutation();
 
   console.log(data, "data");
   const getUserName = (id) => {
@@ -35,6 +38,15 @@ function TicketDetail() {
     });
 
     setText("");
+  };
+   const handleStatusChange = async () => {
+    try {
+      await updateTicket({ id: ticket.id, status: newStatus }).unwrap();
+      alert("Ticket status güncellendi ✅");
+    } catch (err) {
+      console.error("Status update error:", err);
+      alert("Güncelleme sırasında hata oluştu");
+    }
   };
 
   return (
@@ -58,6 +70,20 @@ function TicketDetail() {
           <strong>Created By:</strong> User #{ticket?.createdBy}
         </p>
       </div>
+       {authorId === "1" && (
+        <div className="status-update">
+          <h3>Status Güncelle</h3>
+          <select 
+            value={newStatus} 
+            onChange={(e) => setNewStatus(e.target.value)}
+          >
+            <option value="open">Open</option>
+            <option value="in-progress">In Progress</option>
+            <option value="closed">Closed</option>
+          </select>
+          <button onClick={handleStatusChange}>Kaydet</button>
+        </div>
+      )}
       <div className="ticket-comments">
         <h3>Comments</h3>
         {comments?.length === 0 && <p>No comments yet.</p>}

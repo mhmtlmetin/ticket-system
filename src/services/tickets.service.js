@@ -18,6 +18,14 @@ export const ticketApi = createApi({
         body: newTicket,
       }),
     }),
+    updateTicket: builder.mutation({
+      query: ({ id, ...patch }) => ({
+        url: `requests/${id}`,
+        method: "PATCH",
+        body: patch,
+      }),
+    }),
+
     getCommentsByRequestId: builder.query({
       query: (requestId) => `comments?requestId=${requestId}`,
       providesTags: (result, error, requestId) => [
@@ -34,7 +42,7 @@ export const ticketApi = createApi({
         { type: "Comment", id: requestId },
       ],
     }),
-     getUserByAuthorId: builder.query({
+    getUserByAuthorId: builder.query({
       query: (authorId) => `users?authorId=${authorId}`,
       providesTags: (result, error, authorId) => [
         { type: "User", id: authorId },
@@ -50,5 +58,6 @@ export const {
   useCreateTicketMutation,
   useGetCommentsByRequestIdQuery,
   useAddCommentMutation,
- useGetUserByAuthorIdQuery
+  useGetUserByAuthorIdQuery,
+  useUpdateTicketMutation
 } = ticketApi;
