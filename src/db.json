@@ -105,6 +105,62 @@
       "authorId": 2,
       "text": "Sorun devam ediyor.",
       "createdAt": "2025-09-01T09:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "requestId": 1,
+      "authorId": 2,
+      "text": "tekrar dener misiniz?",
+      "createdAt": "2025-09-01T09:00:00.000Z"
+    },
+    {
+      "id": "3",
+      "requestId": 3,
+      "authorId": 2,
+      "text": "Sorun devam ediyor.",
+      "createdAt": "2025-09-01T09:00:00.000Z"
+    },
+    {
+      "id": "d138",
+      "requestId": 1,
+      "authorId": 1,
+      "text": "denedim olmadı",
+      "createdAt": "2025-09-06T23:40:09.592Z"
+    },
+    {
+      "id": "74d9",
+      "requestId": 1,
+      "authorId": 1,
+      "text": "çok ciddiyim",
+      "createdAt": "2025-09-06T23:41:03.698Z"
+    },
+    {
+      "id": "b698",
+      "requestId": 2,
+      "authorId": 1,
+      "text": "selam",
+      "createdAt": "2025-09-06T23:50:41.569Z"
+    },
+    {
+      "id": "71f3",
+      "requestId": 7,
+      "authorId": 1,
+      "text": "Tekrar denedim olmadı",
+      "createdAt": "2025-09-07T10:57:32.161Z"
+    },
+    {
+      "id": "f1bc",
+      "requestId": 7,
+      "authorId": 1,
+      "text": "Tekrar denedim olmadı",
+      "createdAt": "2025-09-07T10:57:29.975Z"
+    },
+    {
+      "id": "654c",
+      "requestId": 7,
+      "authorId": 1,
+      "text": "şimdi tekrar deniyorum",
+      "createdAt": "2025-09-07T10:58:05.692Z"
     }
   ]
 }
