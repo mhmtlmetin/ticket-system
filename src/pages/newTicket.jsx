@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useCreateTicketMutation } from "../services/tickets.service";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import '../styles/NewTicket.scss'
 
 export default function NewTicket() {
@@ -11,6 +14,7 @@ export default function NewTicket() {
   });
 
   const [createTicket, { isLoading, error, isSuccess }] = useCreateTicketMutation();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -36,13 +40,28 @@ export default function NewTicket() {
         category: "",
         status: "open",
       });
+      toast.success("İşlem başarılı!");
+       setTimeout(() => {
+          navigate(-1);
+        }, 2000);
     } catch (err) {
-      console.error("Error creating ticket:", err);
+      toast.error("Bir hata oluştu!");
     }
   };
 
   return (
     <div className="new-ticket-page">
+        <ToastContainer 
+        position="top-right"
+        autoClose={3000} 
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <h2 className="form-title">Create New Ticket</h2>
 
       {isSuccess && <p className="success-message">Ticket created successfully!</p>}

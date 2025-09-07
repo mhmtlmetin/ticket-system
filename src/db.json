@@ -30,7 +30,7 @@
       "title": "Uygulamaya  login olamıyorum",
       "description": "Kullanıcı Adı ve şifremi doğru yazmama rağmen login olamıyorum.",
       "category": "Application",
-      "status": "closed",
+      "status": "open",
       "createdBy": 2,
       "createdAt": "2025-09-01T08:00:00.000Z"
     },
@@ -96,6 +96,24 @@
       "status": "open",
       "createdBy": 1,
       "createdAt": "2025-09-06T21:19:40.455Z"
+    },
+    {
+      "id": "cba6",
+      "title": "Veri kaybı",
+      "description": "Sisteme giriş yaptığımda kayıtlı verilerimi göremiyorum, çok önemli bilgilerim var lütfen bu konuda yardımcı olun",
+      "category": "Software",
+      "status": "open",
+      "createdBy": 1,
+      "createdAt": "2025-09-07T20:39:28.516Z"
+    },
+    {
+      "id": "d11f",
+      "title": "şifremi unuttum",
+      "description": "şifremi unuttum yeni şifre almak istiyorum.",
+      "category": "Software",
+      "status": "open",
+      "createdBy": 1,
+      "createdAt": "2025-09-07T20:44:04.876Z"
     }
   ],
   "comments": [

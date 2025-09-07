@@ -8,6 +8,8 @@ import {
   useGetUserByAuthorIdQuery,
   useUpdateTicketMutation 
 } from "../services/tickets.service";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import '../styles/ticketDetail.scss'
 
 function TicketDetail() {
@@ -43,16 +45,27 @@ function TicketDetail() {
    const handleStatusChange = async () => {
     try {
       await updateTicket({ id: ticket.id, status: newStatus }).unwrap();
-      alert("Ticket status güncellendi ✅");
+      toast.success("İşlem başarılı!");
+    
     } catch (err) {
-      console.error("Status update error:", err);
-      alert("Güncelleme sırasında hata oluştu");
+     toast.error("Bir hata oluştu!");
     }
   };
 
   return (
     <div className="ticket-container">
-  {/* Ticket Info */}
+        <ToastContainer 
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+
   <div className="ticket-detail">
     <h2>{ticket?.title}</h2>
     <p><strong>Description:</strong> {ticket?.description}</p>
@@ -62,7 +75,7 @@ function TicketDetail() {
     <p><strong>Created By:</strong> User #{ticket?.createdBy}</p>
   </div>
 
-  {/* Status Update Panel */}
+
   {authorId === "1" && (
     <div className="status-update">
       <h3>Status Update</h3>
@@ -75,11 +88,10 @@ function TicketDetail() {
     </div>
   )}
 
-  {/* Comments */}
   <div className="ticket-comments">
     <h3>Comments</h3>
     <ul>
-      {comments?.length === 0 && <p>No comments yet.</p>}
+      {comments?.length === 0 && <p>Henüz yorum yok.</p>}
       {comments?.map((c) => (
         <li key={c.id}>
           <span className="username">{getUserName(c.authorId)}</span>

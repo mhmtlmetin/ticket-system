@@ -7,14 +7,17 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-left: 12%;
     gap: 2%;
     .add-ticket {
       width: 35%;
-      height: 35px;
-      background: orchid;
-      font-size: 10px;
+      height: 55px;
+      background-color: rgb(4, 36, 243);
+      font-size: 16px;
+      margin-left: 5%;
        padding: 10px 14px;
     margin-bottom: 20px;
+    color:#fff;
     }
   }
   .content {
