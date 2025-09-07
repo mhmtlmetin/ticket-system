@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useCreateTicketMutation } from "../services/tickets.service";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import '../styles/NewTicket.scss'
+import "../styles/NewTicket.scss";
 
 export default function NewTicket() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -13,7 +15,8 @@ export default function NewTicket() {
     status: "open",
   });
 
-  const [createTicket, { isLoading, error, isSuccess }] = useCreateTicketMutation();
+  const [createTicket, { isLoading, error, isSuccess }] =
+    useCreateTicketMutation();
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -41,9 +44,9 @@ export default function NewTicket() {
         status: "open",
       });
       toast.success("İşlem başarılı!");
-       setTimeout(() => {
-          navigate(-1);
-        }, 2000);
+      setTimeout(() => {
+        navigate(-1);
+      }, 2000);
     } catch (err) {
       toast.error("Bir hata oluştu!");
     }
@@ -51,9 +54,9 @@ export default function NewTicket() {
 
   return (
     <div className="new-ticket-page">
-        <ToastContainer 
+      <ToastContainer
         position="top-right"
-        autoClose={3000} 
+        autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -62,14 +65,16 @@ export default function NewTicket() {
         draggable
         pauseOnHover
       />
-      <h2 className="form-title">Create New Ticket</h2>
+      <h2 className="form-title">{t("createNewTicket")}</h2>
 
-      {isSuccess && <p className="success-message">Ticket created successfully!</p>}
+      {isSuccess && (
+        <p className="success-message">Ticket created successfully!</p>
+      )}
       {error && <p className="error-message">Failed to create ticket.</p>}
 
       <form className="ticket-form" onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Title</label>
+          <label>{t("title")}</label>
           <input
             type="text"
             name="title"
@@ -80,7 +85,7 @@ export default function NewTicket() {
         </div>
 
         <div className="form-group">
-          <label>Description</label>
+          <label>{t("description")}</label>
           <textarea
             name="description"
             rows="4"
@@ -91,8 +96,13 @@ export default function NewTicket() {
         </div>
 
         <div className="form-group">
-          <label>Category</label>
-          <select name="category" value={formData.category} onChange={handleChange} required>
+          <label>{t("category")}</label>
+          <select
+            name="category"
+            value={formData.category}
+            onChange={handleChange}
+            required
+          >
             <option value="">Select Category</option>
             <option value="Network">Network</option>
             <option value="Software">Software</option>
@@ -101,8 +111,13 @@ export default function NewTicket() {
         </div>
 
         <div className="form-group">
-          <label>Status</label>
-          <select name="status" value={formData.status} onChange={handleChange} required>
+          <label>{t("status")}</label>
+          <select
+            name="status"
+            value={formData.status}
+            onChange={handleChange}
+            required
+          >
             <option value="open">Open</option>
             <option value="in-progress">In Progress</option>
             <option value="resolved">Resolved</option>
@@ -110,7 +125,7 @@ export default function NewTicket() {
         </div>
 
         <button type="submit" disabled={isLoading} className="submit-btn">
-          {isLoading ? "Submitting..." : "Create Ticket"}
+          {isLoading ? "Submitting..." : t("createTicket")}
         </button>
       </form>
     </div>

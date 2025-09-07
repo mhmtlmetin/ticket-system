@@ -89,7 +89,7 @@ function TicketDetail() {
 
       {authorId === "1" && (
         <div className="status-update">
-          <h3>{t("Description")} Status Update</h3>
+          <h3>{t("statusUpdate")} </h3>
           <select
             value={newStatus}
             onChange={(e) => setNewStatus(e.target.value)}
@@ -98,7 +98,7 @@ function TicketDetail() {
             <option value="in-progress">In Progress</option>
             <option value="closed">Closed</option>
           </select>
-          <button onClick={handleStatusChange}>{t("Description")} Save</button>
+          <button onClick={handleStatusChange}>{t("save")} </button>
         </div>
       )}
 

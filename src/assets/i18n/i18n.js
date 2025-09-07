@@ -22,7 +22,11 @@ i18n.use(initReactI18next).init({
         save: "Save",
         comments:"Comments",
         addComment:"Add Comment",
-        writeComment:"Write a comment..."
+        writeComment:"Write a comment...",
+        statusUpdate:"Statup Update",
+        title:"Tilte",
+        createNewTicket:"Create New Ticket",
+        createTicket:"Create Ticket"
       },
     },
     tr: {
@@ -44,7 +48,11 @@ i18n.use(initReactI18next).init({
         save: "Kaydet",
         comments:"Yorumlar",
         addComment:"Yorum Yap",
-        writeComment:"Bir yorum yaz..."
+        writeComment:"Bir yorum yaz...",
+        statusUpdate:"Statüyü Güncelle",
+        title:"Başlık",
+        createNewTicket:"Yeni Talep Oluştur",
+        createTicket:"Talep Oluştur"
       },
     },
   },
