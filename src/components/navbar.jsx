@@ -29,8 +29,8 @@ const navigate = useNavigate();
         </button>
         {menuOpen && (
           <div className="navbar__dropdown">
-            <p><strong>{user?.name}</strong></p>
-            <p>{user?.email}</p>
+            <p><button onClick={()=>navigate("/profile")}>{"Profil"}</button></p>
+            
             <hr />
             <button onClick={handleLogout} className="navbar__logout">
               Logout

@@ -6,6 +6,7 @@ import AdminDashboard from "./pages/adminDashboard";
 import UserDashboard from "./pages/userDashboard";
 import NewTicket from "./pages/newTicket";
 import TicketDetail from "./pages/ticketDetail";
+import Profile from "./pages/profile"
 import Navbar from './components/navbar'
 
 function Layout({ children }) {
@@ -33,6 +34,7 @@ function App() {
         <Route path="/user-dashboard" element={<UserDashboard />} />
         <Route path="/new-ticket" element={<NewTicket />} />
          <Route path="/requests/:id" element={<TicketDetail/>} />
+         <Route path="/profile" element={<Profile/>} />
       </Routes>
       </Layout>
       </>

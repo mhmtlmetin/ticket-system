@@ -1,0 +1,39 @@
+.profile-page {
+  padding: 20px;
+  max-width: 600px;
+  margin: 80px auto; // Navbar alta kaysın diye margin
+
+  h2 {
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  p {
+    margin: 5px 0;
+  }
+
+  .stats {
+    margin-top: 20px;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+
+    h3 {
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        padding: 5px 0;
+        border-bottom: 1px solid #ddd;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}
