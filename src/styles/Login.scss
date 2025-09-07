@@ -1,36 +1,121 @@
 .login-container {
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
-  background: #f0f2f5;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  font-family: 'Roboto', sans-serif;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.15), transparent 50%);
+    transform: rotate(25deg);
+  }
 
   .login-box {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
-  }
-
-  input {
+    position: relative;
+    background: rgba(255, 255, 255, 0.9); // Beyaza yakın arkaplan
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 3rem 2rem;
     width: 100%;
-    margin: 8px 0;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-  }
+    max-width: 400px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-  button {
-    width: 107%;
-    padding: 10px;
-    background: #3498db;
-    border: none;
-    border-radius: 6px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #333; // Daha okunaklı koyu renk
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    input {
+      width: 91%;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.2); // Koyu sınır
+      background: rgba(255, 255, 255, 0.8); // Açık input arkaplanı
+      color: #333; // Okunaklı yazı rengi
+      font-size: 1rem;
+      transition: border 0.3s, background 0.3s, box-shadow 0.3s;
+
+      &::placeholder {
+        color: rgba(0, 0, 0, 0.4);
+      }
+
+      &:focus {
+        border-color: #2575fc;
+        box-shadow: 0 0 10px rgba(37, 117, 252, 0.5);
+        outline: none;
+        background: rgba(255, 255, 255, 1);
+      }
+    }
+
+    div {
+      color: #ff4d4f; // Hata mesajları kırmızı
+      font-size: 0.875rem;
+      margin-top: -0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border-radius: 12px;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: #2575fc; // Mavi buton
+      color: #fff;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+
+      &:hover {
+        background: #0053ba;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      &:disabled {
+        background: rgba(37, 117, 252, 0.4);
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+// Responsive
+@media (max-width: 480px) {
+  .login-container {
+    padding: 1rem;
+
+    .login-box {
+      padding: 2rem 1.5rem;
+
+      h2 {
+        font-size: 1.75rem;
+      }
+
+      input,
+      button {
+        font-size: 0.95rem;
+        padding: 0.65rem 1rem;
+      }
+    }
   }
 }

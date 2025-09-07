@@ -6,6 +6,8 @@ import { setCredentials, setError } from "../redux/auth/authSlice";
 import { useTranslation } from "react-i18next";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../styles/login.scss";
 
 export default function Login() {
@@ -43,6 +45,7 @@ export default function Login() {
         dispatch(setError("Invalid username or password"));
       }
     } catch (err) {
+        toast.error("kullanıcı adı veya şifre hatalı!");
       dispatch(setError("Login failed"));
     }
   };
