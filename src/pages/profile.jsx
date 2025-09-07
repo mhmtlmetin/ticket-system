@@ -1,4 +1,5 @@
 import { useGetAllTicketsQuery,useGetUserByAuthorIdQuery } from "../services/tickets.service";
+import '../styles/profile.scss'
 
 export default function Profile() {
   const user = JSON.parse(localStorage.getItem("userName"));
