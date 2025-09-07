@@ -1,0 +1,79 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: #2d3e50;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1000;
+
+  &__logo {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  &__profile {
+    position: relative;
+
+    &-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__arrow {
+    font-size: 12px;
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background: #fff;
+    color: #333;
+    min-width: 180px;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    padding: 10px;
+    z-index: 1001;
+
+    p {
+      margin: 5px 0;
+    }
+
+    hr {
+      margin: 8px 0;
+      border: none;
+      border-top: 1px solid #ddd;
+    }
+  }
+
+  &__logout {
+    width: 100%;
+    background: #e74c3c;
+    border: none;
+    color: #fff;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background: #c0392b;
+    }
+  }
+}

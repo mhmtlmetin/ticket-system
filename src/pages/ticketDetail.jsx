@@ -5,22 +5,22 @@ import {
   useGetTicketQuery,
   useGetCommentsByRequestIdQuery,
   useAddCommentMutation,
- useGetUserByAuthorIdQuery
+  useGetUserByAuthorIdQuery,
 } from "../services/tickets.service";
 
 function TicketDetail() {
-    const authorId = localStorage.getItem("userName");
+  const authorId = localStorage.getItem("userName");
   const { id } = useParams();
   const [text, setText] = useState("");
   const { data: ticket, isLoading, error } = useGetTicketQuery(id);
   const { data: comments } = useGetCommentsByRequestIdQuery(id);
-   const { data: users } = useGetUserByAuthorIdQuery(authorId);
-   console.log(users,"username")
+  const { data: users } = useGetUserByAuthorIdQuery(authorId);
+  console.log(users, "username");
   const [addComment] = useAddCommentMutation();
-  
+
   console.log(data, "data");
   const getUserName = (id) => {
-     const user = users?.find((u) => String(u.id) === String(id));
+    const user = users?.find((u) => String(u.id) === String(id));
     return user ? user.name : `User #${id}`;
   };
   const handleSubmit = async (e) => {
