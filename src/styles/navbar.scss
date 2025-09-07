@@ -62,6 +62,19 @@
       border-top: 1px solid #ddd;
     }
   }
+ &-profile{
+    width: 100%;
+    background: #6b6766;
+    border: none;
+    color: #fff;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background: #363131;
+    }
+  }
 
   &__logout {
     width: 100%;
