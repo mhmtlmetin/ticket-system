@@ -11,7 +11,9 @@ i18n.use(initReactI18next).init({
         password:"Password",
         search:"Search by title, category or status...",
         addNewTicket:"Add New Ticket",
-        detail:"Detail"
+        detail:"Detail",
+        username_required:"Username is required",
+        password_required:"Password is required"
       },
     },
     tr: {
@@ -22,7 +24,9 @@ i18n.use(initReactI18next).init({
         password:"Şifre",
         search:"Başlık, kategori veya statuse göre ara",
         addNewTicket:"Yeni Talep Ekle",
-        detail:"Detay"
+        detail:"Detay",
+        username_required:"Kullanıcı adı boş olamaz",
+        password_required:"Şifre alanı boş olamaz"
       },
     }
   },

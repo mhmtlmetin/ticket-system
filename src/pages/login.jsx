@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setCredentials, setError } from "../redux/auth/authSlice";
 import { useTranslation } from "react-i18next";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 import "../styles/login.scss";
 
 export default function Login() {
@@ -13,6 +15,12 @@ export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { t } = useTranslation();
+
+  const validationSchema = Yup.object({
+    username: Yup.string()
+      .required(t("username_required")),
+    password: Yup.string().required(t("password_required")),
+  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -41,24 +49,69 @@ export default function Login() {
 
   return (
     <div className="login-container">
-      <form onSubmit={handleSubmit} className="login-box">
-        <h2 className="text-2xl font-bold mb-6 text-center">{t("login")}</h2>
+  <Formik
+    initialValues={{ username: "", password: "" }}
+    validationSchema={validationSchema}
+    onSubmit={async (values, { setSubmitting }) => {
+    const { username, password } = values;
+
+    if (username.length === 0 || password.length === 0) {
+      setSubmitting(false);
+      return;
+    }
+
+    try {
+      const result = await triggerLogin({ username, password }).unwrap();
+
+      if (result.length > 0) {
+        const user = result[0];
+        localStorage.setItem("userName", user.id);
+        dispatch(setCredentials(user));
+
+        if (user.role === "admin") {
+          navigate("/admin-dashboard");
+        } else {
+          navigate("/user-dashboard");
+        }
+      } else {
+        dispatch(setError("Invalid username or password"));
+      }
+    } catch (err) {
+      dispatch(setError("Login failed"));
+    } finally {
+      setSubmitting(false);
+    }
+  }}
+  >
+    {(formik) => (
+      <form onSubmit={formik.handleSubmit} className="login-box">
+        <h2 className="text-2xl font-bold mb-6 text-center">
+          {t("login")}
+        </h2>
 
         <input
           type="text"
+          name="username"
           placeholder={t("username")}
           className="w-full mb-4 p-2 border rounded"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          value={formik.values.username}
+          onChange={formik.handleChange}
         />
+        {formik.errors.username && formik.touched.username && (
+          <div style={{ color: "red" }}>{formik.errors.username}</div>
+        )}
 
         <input
           type="password"
+          name="password"
           placeholder={t("password")}
           className="w-full mb-4 p-2 border rounded"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={formik.values.password}
+          onChange={formik.handleChange}
         />
+        {formik.errors.password && formik.touched.password && (
+          <div style={{ color: "red" }}>{formik.errors.password}</div>
+        )}
 
         <button
           type="submit"
@@ -68,6 +121,9 @@ export default function Login() {
           {isLoading ? t("loading") : t("login")}
         </button>
       </form>
-    </div>
+    )}
+  </Formik>
+</div>
+
   );
 }

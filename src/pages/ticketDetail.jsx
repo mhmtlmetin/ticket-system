@@ -8,6 +8,7 @@ import {
   useGetUserByAuthorIdQuery,
   useUpdateTicketMutation 
 } from "../services/tickets.service";
+import '../styles/ticketDetail.scss'
 
 function TicketDetail() {
   const authorId = localStorage.getItem("userName");
@@ -51,64 +52,56 @@ function TicketDetail() {
 
   return (
     <div className="ticket-container">
-      <div className="ticket-detail">
-        <h2>{ticket?.title}</h2>
-        <p>
-          <strong>Description:</strong> {ticket?.description}
-        </p>
-        <p>
-          <strong>Category:</strong> {ticket?.category}
-        </p>
-        <p>
-          <strong>Status:</strong> {ticket?.status}
-        </p>
-        <p>
-          <strong>Created At:</strong>{" "}
-          {new Date(ticket?.createdAt).toLocaleString()}
-        </p>
-        <p>
-          <strong>Created By:</strong> User #{ticket?.createdBy}
-        </p>
-      </div>
-       {authorId === "1" && (
-        <div className="status-update">
-          <h3>Status Güncelle</h3>
-          <select 
-            value={newStatus} 
-            onChange={(e) => setNewStatus(e.target.value)}
-          >
-            <option value="open">Open</option>
-            <option value="in-progress">In Progress</option>
-            <option value="closed">Closed</option>
-          </select>
-          <button onClick={handleStatusChange}>Kaydet</button>
-        </div>
-      )}
-      <div className="ticket-comments">
-        <h3>Comments</h3>
-        {comments?.length === 0 && <p>No comments yet.</p>}
+  {/* Ticket Info */}
+  <div className="ticket-detail">
+    <h2>{ticket?.title}</h2>
+    <p><strong>Description:</strong> {ticket?.description}</p>
+    <p><strong>Category:</strong> {ticket?.category}</p>
+    <p><strong>Status:</strong> {ticket?.status}</p>
+    <p><strong>Created At:</strong> {new Date(ticket?.createdAt).toLocaleString()}</p>
+    <p><strong>Created By:</strong> User #{ticket?.createdBy}</p>
+  </div>
 
-        <ul>
-          {comments?.map((c) => (
-            <li key={c.id}>
-              <p>
-                <strong>{getUserName(c.authorId)}:</strong> {c.text}
-              </p>
-              <small>{new Date(c.createdAt).toLocaleString()}</small>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <form onSubmit={handleSubmit}>
-        <textarea
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder="Write a comment..."
-        />
-        <button type="submit">Add Comment</button>
-      </form>
+  {/* Status Update Panel */}
+  {authorId === "1" && (
+    <div className="status-update">
+      <h3>Status Update</h3>
+      <select value={newStatus} onChange={(e) => setNewStatus(e.target.value)}>
+        <option value="open">Open</option>
+        <option value="in-progress">In Progress</option>
+        <option value="closed">Closed</option>
+      </select>
+      <button onClick={handleStatusChange}>Save</button>
     </div>
+  )}
+
+  {/* Comments */}
+  <div className="ticket-comments">
+    <h3>Comments</h3>
+    <ul>
+      {comments?.length === 0 && <p>No comments yet.</p>}
+      {comments?.map((c) => (
+        <li key={c.id}>
+          <span className="username">{getUserName(c.authorId)}</span>
+          <p className="comment-text">{c.text}</p>
+          <small className="comment-date">
+            {new Date(c.createdAt).toLocaleString()}
+          </small>
+        </li>
+      ))}
+    </ul>
+
+    <form onSubmit={handleSubmit}>
+      <textarea
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="Write a comment..."
+      />
+      <button type="submit">Add Comment</button>
+    </form>
+  </div>
+</div>
+
   );
 }
 

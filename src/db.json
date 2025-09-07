@@ -196,6 +196,27 @@
       "authorId": 2,
       "text": "pekala deniyorum",
       "createdAt": "2025-09-07T17:05:13.039Z"
+    },
+    {
+      "id": "ef0b",
+      "requestId": 2,
+      "authorId": 2,
+      "text": "oldu gibi",
+      "createdAt": "2025-09-07T19:53:59.253Z"
+    },
+    {
+      "id": "3e5b",
+      "requestId": 1,
+      "authorId": 2,
+      "text": "şimdi düzeldi\n",
+      "createdAt": "2025-09-07T20:05:31.133Z"
+    },
+    {
+      "id": "560c",
+      "requestId": 6,
+      "authorId": 1,
+      "text": "tekrar deneyiniz..",
+      "createdAt": "2025-09-07T20:18:37.429Z"
     }
   ]
 }
