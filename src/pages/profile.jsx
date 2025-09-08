@@ -1,7 +1,9 @@
 import { useGetAllTicketsQuery,useGetUserByAuthorIdQuery } from "../services/tickets.service";
+import { useTranslation } from "react-i18next";
 import '../styles/profile.scss'
 
 export default function Profile() {
+    const { t } = useTranslation();
   const user = JSON.parse(localStorage.getItem("userName"));
   const { data: tickets, isLoading, error } = useGetAllTicketsQuery();
  const { data: users } = useGetUserByAuthorIdQuery(user);
@@ -26,16 +28,16 @@ export default function Profile() {
   return (
     <div className="profile-page">
       <h2>{userName} - Profil</h2>
-      <p><strong>Kullanıcı Adı:</strong> {userName}</p>
-      <p><strong>Rol:</strong> {role}</p>
+      <p><strong>{t("username")}:</strong> {userName}</p>
+      <p><strong>{t("role")}:</strong> {role}</p>
 
       <div className="stats">
-        <h3>Ticket İstatistikleri</h3>
+        <h3>{t("ticketStatistics")}</h3>
         <ul>
-          <li>Toplam Ticket: {stats.total}</li>
-          <li>Open: {stats.open}</li>
-          <li>Closed: {stats.closed}</li>
-          <li>In-Progress: {stats.inProgress}</li>
+          <li>{t("totalTicket")}: {stats.total}</li>
+          <li>{t("open")}: {stats.open}</li>
+          <li>{t("closed")}: {stats.closed}</li>
+          <li>{t("inProgress")}: {stats.inProgress}</li>
         </ul>
       </div>
     </div>
